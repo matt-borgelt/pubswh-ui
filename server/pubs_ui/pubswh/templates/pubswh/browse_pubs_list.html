@@ -17,7 +17,11 @@
     </p>
 
     <h1>Browse the USGS Publication Warehouse</h1>
-    <h2>Publications in the Series {{ series_title }}</h2>
+    <h2>Publications for publication type {{ pub_type }} 
+        {% if pub_subtype is not none %}
+            and publication subtype {{pub_subtype}}
+        {% endif %}
+    </h2>
     <ul>
         {% if pubs_data %}
             {% for publication in pubs_data %}

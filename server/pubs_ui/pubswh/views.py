@@ -413,8 +413,7 @@ def browse_subtypes(pub_type):
                                    pub_type=pub_type, pub_subtype=None, series_title=None,
                                    pubs_data=None)
 
-        pub_subtypes = get(pub_url + "/lookup/publicationtype/" + str(pub_types_dict[pub_type.lower()]) +
-                           "/publicationsubtypes/", verify=verify_cert).json()
+        pub_subtypes = get('/'.join(s.strip('/') for s in [pub_url, "lookup/publicationtype/", str(pub_types_dict[pub_type.lower()]), "/publicationsubtypes/"]), verify=verify_cert).json()
         return render_template('pubswh/browse_subtypes.html', pub_type=pub_type, subtypes=pub_subtypes)
 
     abort(404)
@@ -428,8 +427,7 @@ def browse_subtype(pub_type, pub_subtype):
     pub_types = get(urljoin(pub_url, "lookup/publicationtypes"), params={'text': pub_type}, verify=verify_cert).json()
     pub_types_dict = {publication_type['text'].lower(): publication_type['id'] for publication_type in pub_types}
     if pub_type.lower() in list(pub_types_dict.keys()):
-        pub_subtypes = get(pub_url + "/lookup/publicationtype/" +
-                           str(pub_types_dict[pub_type.lower()]) + "/publicationsubtypes/", verify=verify_cert).json()
+        pub_subtypes = get('/'.join(s.strip('/') for s in [pub_url, "lookup/publicationtype/", str(pub_types_dict[pub_type.lower()]), "/publicationsubtypes/"]), verify=verify_cert).json()
         pub_subtypes_dict = {publication_subtype['text'].lower(): publication_subtype['id']
                              for publication_subtype in pub_subtypes}
         if pub_subtype.lower() in list(pub_subtypes_dict.keys()):

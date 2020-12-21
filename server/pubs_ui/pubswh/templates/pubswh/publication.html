@@ -299,7 +299,7 @@
                                                         {{ interaction['subject']['subChapter'] }}{% endif %}
                                             : {% endif %}<a
                                             href="{{ JSON_LD_ID_BASE_URL }}/publication/{{ interaction['subject']['indexId'] }}"><span
-                                            itemprop="name">{{ interaction['subject']['title']|safe }}</span></a></li>
+                                            itemprop="name">{{ interaction['subject']['displayTitle']|safe }}</span></a></li>
                                 </ul>
                             {% endif %}
                         {% endfor %}
@@ -310,7 +310,7 @@
                                 {{ pubdata['chapter'] }}{% if pubdata['subChapter'] %}-
                                     {{ pubdata['subChapter'] }}{% endif %} of {% endif %}<a
                                     href="{{ JSON_LD_ID_BASE_URL }}/publication/{{ pubdata['isPartOf']['indexId'] }}"><span
-                                    itemprop="name">{{ pubdata['isPartOf']['title']|safe }}</span></a></li>
+                                    itemprop="name">{{ pubdata['isPartOf']['displayTitle']|safe }}</span></a></li>
                         {% endif %}
                     {% endif %}
                     {{- linkdisplaylists('Table', 'Table','Tables') -}}
