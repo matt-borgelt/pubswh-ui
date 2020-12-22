@@ -250,8 +250,8 @@
                         <li>Preceding Publications:</li>
                         {% for precede_pub in related_pubs['precede_info'] %}
                             <ul>
-                                <li class="filessublist">
-                                    <a  class="usa-link"
+                                <li class="filessublist" style="max-width: 100%;">
+                                    <a  class="usa-link" 
                                         href="{{ url_for('pubswh.publication', index_id = precede_pub['id']) }}">
                                         {{ precede_pub['title'] }}({{ precede_pub['year'] }})
                                     </a>
@@ -263,8 +263,8 @@
                         <li>Superseding Publications:</li>
                         {% for supersede_pub in related_pubs['supersede_info'] %}
                             <ul>
-                                <li class="filessublist">
-                                    <a class="usa-link"
+                                <li class="filessublist" style="max-width: 100%;">
+                                    <a class="usa-link" 
                                        href="{{ url_for('pubswh.publication', index_id = supersede_pub['id']) }}">
                                         {{ supersede_pub['title'] }}({{ supersede_pub['year'] }})
                                     </a>
