@@ -299,18 +299,30 @@
                                                         {{ interaction['subject']['subChapter'] }}{% endif %}
                                             : {% endif %}<a
                                             href="{{ JSON_LD_ID_BASE_URL }}/publication/{{ interaction['subject']['indexId'] }}"><span
-                                            itemprop="name">{{ interaction['subject']['displayTitle']|safe }}</span></a></li>
+                                            itemprop="name">
+                                            {% if interaction['subject']['displayTitle'] %}    
+                                                {{ interaction['subject']['displayTitle']|safe }}
+                                            {% else %}
+                                                {{ interaction['subject']['title']|safe }}
+                                            {% endif %}
+                                            </span></a></li>
                                 </ul>
                             {% endif %}
                         {% endfor %}
                         {% if pubdata['isPartOf'] %}
-                            <li itemprop="isPartOf" itemscope itemtype="http://schema.org/ScholarlyArticle"
+                            <li itemprop="isPartOf" itemscope itemtype="http://schema.org/ScholarlyArticle" style="max-width: 100%;"
                                 itemid="{{ JSON_LD_ID_BASE_URL }}/publication/{{ pubdata['isPartOf']['indexId'] }}">
                                 Larger Work: {% if pubdata['chapter'] %}This publication is Chapter
                                 {{ pubdata['chapter'] }}{% if pubdata['subChapter'] %}-
                                     {{ pubdata['subChapter'] }}{% endif %} of {% endif %}<a
                                     href="{{ JSON_LD_ID_BASE_URL }}/publication/{{ pubdata['isPartOf']['indexId'] }}"><span
-                                    itemprop="name">{{ pubdata['isPartOf']['displayTitle']|safe }}</span></a></li>
+                                    itemprop="name">
+                                    {% if pubdata['isPartOf']['displayTitle'] %}    
+                                        {{ pubdata['isPartOf']['displayTitle']|safe }}
+                                    {% else %}
+                                        {{ pubdata['isPartOf']['title']|safe }}
+                                    {% endif %}
+                                </span></a></li>
                         {% endif %}
                     {% endif %}
                     {{- linkdisplaylists('Table', 'Table','Tables') -}}

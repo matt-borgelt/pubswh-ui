@@ -656,17 +656,14 @@ def make_chapter_data_for_display(pubdata):
         # natural sort the indexIDs so that chapter 2 comes after chapter one and before chapter three
         pubdata['interactions'] = natsort.natsorted(pubdata['interactions'], key=lambda x: x['subject']['indexId'],
                                                     alg=natsort.ns.IGNORECASE)
-        
-        all_interactions_have_chapter = True
-        for interaction in pubdata['interactions']:
-            if 'chapter' not in interaction['subject']:
-                all_interactions_have_chapter = False
-
-        if all_interactions_have_chapter is True:
-            # sort by character length of chapter string (AZAAZZ)
-            pubdata['interactions'] = natsort.natsorted(pubdata['interactions'], key=lambda x: len(x['subject']['chapter']),
-                                                        alg=natsort.ns.IGNORECASE)
-
+                
+        if any(x['subject'].get('chapter') for x in pubdata['interactions']):
+            chapters = [x for x in pubdata['interactions'] if x['subject'].get('chapter')]
+            for chapter in chapters:
+                pubdata['interactions'].remove(chapter)
+            chapters = natsort.natsorted(chapters, key=lambda x: len(x['subject']['chapter']), alg=natsort.ns.IGNORECASE)
+            pubdata['interactions'].extend(chapters)
+            
         # determine wheter to display the publication subparts chunk of the template
         for interaction in pubdata['interactions']:
             pubdata['hasSubParts'] = bool(interaction['predicate'] == "IS_PART_OF" and
