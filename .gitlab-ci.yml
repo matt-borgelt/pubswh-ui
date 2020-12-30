@@ -89,6 +89,17 @@ Build Assets:
     paths:
       - assets/dist
 
+test:
+  image: ${SAS_IMAGES_URL}/base-images/curl:latest
+  stage: Build
+  tags:
+    - docker
+  only:
+    - merge_requests
+  script:
+      - docker-compose -f docker-compose.yml -f docker-compose.ci.yml run assets
+      - cp server/config.py.sample server/instance/config.py
+      - docker-compose -f docker-compose.yml -f docker-compose.ci.yml run -u root server
 #
 # == Upload Assets to Artifactory
 #
@@ -161,18 +172,4 @@ Staging deployment:
   variables:
     # The branch of the deployment repository to trigger.
     DEPLOY_TRIGGER_REF: release
-
-test:
-  stage:
-    Build
-  #extends: .deploy_trigger
-  only:
-    - merge_requests
-  #variables:
-    # The branch of the deployment repository to trigger.
-  #  DEPLOY_TRIGGER_REF: develop
-  script:
-      - docker-compose -f docker-compose.yml -f docker-compose.ci.yml run assets
-      - cp server/config.py.sample server/instance/config.py
-      - docker-compose -f docker-compose.yml -f docker-compose.ci.yml run -u root server
 
