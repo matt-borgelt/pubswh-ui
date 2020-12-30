@@ -89,7 +89,7 @@ Build Assets:
     paths:
       - assets/dist
 
-test:
+Build Tests:
   image: ${SAS_IMAGES_URL}/base-images/curl:latest
   stage: Build
   tags:
