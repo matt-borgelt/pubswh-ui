@@ -36,7 +36,6 @@
 #
 stages:
   - Build
-  - Test
   - Package Assets
   - Trigger Deployment
 
@@ -165,7 +164,7 @@ Staging deployment:
 
 test:
   stage:
-    Test
+    Build
   #extends: .deploy_trigger
   only:
     - merge_requests
