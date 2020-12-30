@@ -36,6 +36,7 @@
 #
 stages:
   - Build
+  - Test
   - Package Assets
   - Trigger Deployment
 
@@ -163,10 +164,16 @@ Staging deployment:
     DEPLOY_TRIGGER_REF: release
 
 test:
-  extends: .deploy_trigger
+  stage:
+    Test
+  #extends: .deploy_trigger
   only:
     - merge_requests
-  variables:
+  #variables:
     # The branch of the deployment repository to trigger.
-    DEPLOY_TRIGGER_REF: develop
+  #  DEPLOY_TRIGGER_REF: develop
+  script:
+      - docker-compose -f docker-compose.yml -f docker-compose.ci.yml run assets
+      - cp server/config.py.sample server/instance/config.py
+      - docker-compose -f docker-compose.yml -f docker-compose.ci.yml run -u root server
 
