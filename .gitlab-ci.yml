@@ -90,6 +90,7 @@ Build Assets:
       - assets/dist
 
 Build Tests:
+  image: ${SAS_IMAGES_URL}/base-images/node:12.16
   stage: Build
   tags:
     - docker
@@ -97,8 +98,6 @@ Build Tests:
     - merge_requests
   script:
       - docker-compose -f docker-compose.yml -f docker-compose.ci.yml run assets
-      - cp server/config.py.sample server/instance/config.py
-      - docker-compose -f docker-compose.yml -f docker-compose.ci.yml run -u root server
 #
 # == Upload Assets to Artifactory
 #
