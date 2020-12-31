@@ -36,6 +36,7 @@
 #
 stages:
   - Build
+  - Test
   - Package Assets
   - Trigger Deployment
 
@@ -89,15 +90,12 @@ Build Assets:
     paths:
       - assets/dist
 
-Build Tests:
-  image: ${SAS_IMAGES_URL}/base-images/node:12.16
-  stage: Build
-  tags:
-    - docker
+Tests:
+  stage: Test
   only:
     - merge_requests
   script:
-      - docker-compose -f docker-compose.yml -f docker-compose.ci.yml run assets
+      - echo "If the files are built successfully, test some files with one command:"
 #
 # == Upload Assets to Artifactory
 #
