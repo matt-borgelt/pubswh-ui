@@ -91,6 +91,7 @@ Build Assets:
       - assets/dist
 
 Tests:
+  image: pkg.cr.usgs.gov/docker-remote/docker:20
   stage: Test
   only:
     - merge_requests
