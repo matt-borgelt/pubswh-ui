@@ -656,7 +656,7 @@ def make_chapter_data_for_display(pubdata):
         # natural sort the indexIDs so that chapter 2 comes after chapter one and before chapter three
         pubdata['interactions'] = natsort.natsorted(pubdata['interactions'], key=lambda x: x['subject']['indexId'],
                                                     alg=natsort.ns.IGNORECASE)
-        # test for merge2
+        # test2 for merge
         #all_interactions_have_chapter = True
         #for interaction in pubdata['interactions']:
         #    if 'chapter' not in interaction['subject']:
