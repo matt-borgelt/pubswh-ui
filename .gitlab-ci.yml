@@ -95,11 +95,18 @@ Tests:
   stage: Test
   tags:
     - docker
+  only:
+    variables:
+      # We must run on a protected branch to access the DOCKER_REGISTRY_PASS variable.
+      - $CI_COMMIT_REF_PROTECTED == "true"
+  before_script:
+  - docker login -u ${DOCKER_REGISTRY_USER} -p ${DOCKER_REGISTRY_PASS} ${DOCKER_REGISTRY}
   # only:
   #   - merge_requests
   script:
     - echo 'Testing section'
-    - docker-compose -f docker-compose.yml -f docker-compose.ci.yml run assets
+    - which docker
+    #- docker-compose -f docker-compose.yml -f docker-compose.ci.yml run assets
 #
 # == Upload Assets to Artifactory
 #
