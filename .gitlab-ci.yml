@@ -98,12 +98,8 @@ Tests:
   only:
     - merge_requests
   script:
-    - echo "If the files are built successfully, test some files with one command:"
-    # Run Javascript tests
+    - echo "Testing section"
     - docker-compose -f docker-compose.yml -f docker-compose.ci.yml run assets
-    # Run Python tests
-    - cp server/config.py.sample server/instance/config.py
-    - docker-compose -f docker-compose.yml -f docker-compose.ci.yml run -u root server
 #
 # == Upload Assets to Artifactory
 #
