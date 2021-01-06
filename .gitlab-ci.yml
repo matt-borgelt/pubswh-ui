@@ -93,12 +93,10 @@ Build Assets:
 Tests:
   image: pkg.cr.usgs.gov/docker-remote/docker:20
   stage: Test
-  tags:
-    - docker
   only:
     - merge_requests
   script:
-    - echo "Testing section"
+    - echo 'Testing section'
     - docker-compose -f docker-compose.yml -f docker-compose.ci.yml run assets
 #
 # == Upload Assets to Artifactory
