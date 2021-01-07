@@ -93,6 +93,8 @@ Build Assets:
 Tests:
   image: pkg.cr.usgs.gov/docker-remote/docker:20
   stage: Test
+  services:
+    - docker:dind
   tags:
     - docker
   only:
