@@ -106,8 +106,8 @@ Tests:
   script:
     - echo 'Testing section'
     - which docker
-    - # Run Javascript tests
-    - docker-compose -f docker-compose.yml -f docker-compose.ci.yml run assets
+    # Run Javascript tests
+    - 'docker-compose -f docker-compose.yml -f docker-compose.ci.yml run assets'
 #
 # == Upload Assets to Artifactory
 #
