@@ -114,6 +114,9 @@ Tests:
     # Run Javascript tests
     - 'pwd'
     - 'ls'
+    - 'cd assets'
+    - 'npm install'
+    - 'cd ..'
     - 'make test-assets'
 #
 # == Upload Assets to Artifactory
