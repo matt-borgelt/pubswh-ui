@@ -93,27 +93,27 @@ Build Assets:
 Test Assets:
   image: ${SAS_IMAGES_URL}/base-images/node:12.16
   stage: Test
-  services:
-    - docker:dind
+  # services:
+    # - docker:dind
   tags:
     - docker
-  only:
-    variables:
+  # only:
+    # variables:
       # We must run on a protected branch to access the DOCKER_REGISTRY_PASS variable.
-      - $CI_COMMIT_REF_PROTECTED == "true"
-  before_script:
-  - docker login -u ${DOCKER_REGISTRY_USER} -p ${DOCKER_REGISTRY_PASS} ${DOCKER_REGISTRY}
+      # - $CI_COMMIT_REF_PROTECTED == "true"
+  # before_script:
+  # - docker login -u ${DOCKER_REGISTRY_USER} -p ${DOCKER_REGISTRY_PASS} ${DOCKER_REGISTRY}
   # only:
   #   - merge_requests
   script:
-    - echo 'Testing section'
-    - which docker
-    - cat /proc/version
+    # - echo 'Testing section'
+    # - which docker
+    # - cat /proc/version
     - apk add --no-cache make
     - apk add --no-cache npm
     # Run Javascript tests
-    - 'pwd'
-    - 'ls'
+    # - 'pwd'
+    # - 'ls'
     - 'cd assets'
     - 'npm install'
     - 'cd ..'
