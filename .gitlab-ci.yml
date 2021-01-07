@@ -113,7 +113,7 @@ Tests:
     # Run Javascript tests
     - 'pwd'
     - 'ls'
-    - 'make tests'
+    - 'make test-assets'
 #
 # == Upload Assets to Artifactory
 #
