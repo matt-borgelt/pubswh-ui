@@ -93,8 +93,8 @@ Build Assets:
 Test Assets:
   image: ${SAS_IMAGES_URL}/base-images/node:12.16
   stage: Test
-  services:
-    - docker:dind
+  # services:
+  #   - docker:dind
   tags:
     - docker
   # only:
@@ -109,15 +109,14 @@ Test Assets:
     # - echo 'Testing section'
     # - which docker
     # - cat /proc/version
-    - apk add --no-cache make
-    - apk add --no-cache npm
+    # - apk add --no-cache make
+    # - apk add --no-cache npm
     # Run Javascript tests
     # - 'pwd'
     # - 'ls'
     - 'cd assets'
     - 'npm install'
-    - 'cd ..'
-    - 'make test-assets'
+    - cd assets && npm run test
 #
 # == Upload Assets to Artifactory
 #
