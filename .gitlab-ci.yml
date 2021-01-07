@@ -111,7 +111,7 @@ Tests:
     - cat /proc/version
     - apk add --no-cache docker-compose
     # Run Javascript tests
-    - 'docker-compose -f docker-compose.yml -f docker-compose.ci.yml run assets'
+    - 'run assets'
 #
 # == Upload Assets to Artifactory
 #
