@@ -110,6 +110,7 @@ Tests:
     - which docker
     - cat /proc/version
     - apk add --no-cache make
+    - apk add --no-cache npm
     # Run Javascript tests
     - 'pwd'
     - 'ls'
