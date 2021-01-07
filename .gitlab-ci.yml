@@ -109,9 +109,10 @@ Tests:
     - echo 'Testing section'
     - which docker
     - cat /proc/version
-    - apk add --no-cache docker-compose
+    #- apk add --no-cache docker-compose
     # Run Javascript tests
-    - 'run assets'
+    - 'pwd'
+    - 'ls'
 #
 # == Upload Assets to Artifactory
 #
