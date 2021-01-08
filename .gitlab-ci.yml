@@ -116,7 +116,7 @@ Test Assets:
     # - 'ls'
     - 'cd assets'
     - 'npm install'
-    - cd assets && npm run test
+    - 'npm run test'
 #
 # == Upload Assets to Artifactory
 #
