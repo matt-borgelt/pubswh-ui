@@ -110,13 +110,13 @@ Test Assets:
     # - which docker
     # - cat /proc/version
     # - apk add --no-cache make
-    - apk add --no-cache chrome
     # - apk add --no-cache npm
     # Run Javascript tests
     # - 'pwd'
     # - 'ls'
     - 'cd assets'
     - 'npm install'
+    - 'npm install karma-chrome-launcher'
     - 'npm run test'
 #
 # == Upload Assets to Artifactory
