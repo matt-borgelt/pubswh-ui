@@ -48,6 +48,7 @@ variables:
   # The asset files are packaged and uploaded to Artifactory for deployment.
   # This sets the filename to use for the artifact.
   ASSET_ARTIFACT_FILE: pubswh-assets-${CI_COMMIT_REF_NAME}-${CI_COMMIT_SHORT_SHA}.zip
+  CHROME_BIN: karma-chrome-launcher
 
 #
 # == Docker Build
