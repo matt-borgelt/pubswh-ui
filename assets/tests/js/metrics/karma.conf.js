@@ -12,7 +12,6 @@ const ENV = process.env.NODE_ENV || 'development';
 
 
 module.exports = function(config) {
-    process.env.CHROME_BIN = 'karma-chrome-launcher';
     let karmaConfig = {
         // base path that will be used to resolve all patterns (eg. files, exclude)
         basePath: '../../..',
@@ -85,7 +84,7 @@ module.exports = function(config) {
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['ChromeHeadless'],
+        browsers: ['FirefoxHeadless'],
 
 
         // Continuous Integration mode
