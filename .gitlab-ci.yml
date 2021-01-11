@@ -113,7 +113,7 @@ Test Server:
     - docker
   script:
     - cp server/config.py.sample server/instance/config.py
-    - docker-compose -f docker-compose.yml -f docker-compose.ci.yml run -u root server
+    - 'mkdir -p coverage && coverage run --omit=pubs_ui/*/tests/*.py,env/* -m pytest pubs_ui/ && coverage xml -o coverage/coverage.xml'
 #
 # == Upload Assets to Artifactory
 #
