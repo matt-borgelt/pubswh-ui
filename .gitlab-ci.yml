@@ -114,7 +114,8 @@ Test Assets:
     # Run Javascript tests
     # - 'pwd'
     # - 'ls'
-    - apt-get install -y firefox-esr
+    - 'apt-get update'
+    - 'apt-get install -y firefox-esr'
     - 'cd assets'
     - 'npm install'
     - 'npm run test'
