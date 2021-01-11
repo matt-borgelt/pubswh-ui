@@ -97,28 +97,23 @@ Test Assets:
     - docker:dind
   tags:
     - docker
-  # only:
-    # variables:
-      # We must run on a protected branch to access the DOCKER_REGISTRY_PASS variable.
-      # - $CI_COMMIT_REF_PROTECTED == "true"
-  # before_script:
-  # - docker login -u ${DOCKER_REGISTRY_USER} -p ${DOCKER_REGISTRY_PASS} ${DOCKER_REGISTRY}
-  # only:
-  #   - merge_requests
   script:
-    # - echo 'Testing section'
-    # - which docker
-    # - cat /proc/version
-    # - apk add --no-cache make
-    # - apk add --no-cache npm
-    # Run Javascript tests
-    # - 'pwd'
-    # - 'ls'
     - 'apt-get update'
     - 'apt-get install -y firefox-esr'
     - 'cd assets'
     - 'npm install'
     - 'npm run test'
+
+Test Server:
+  image: pkg.cr.usgs.gov/docker-remote/docker:20
+  stage: Test
+  services:
+    - docker:dind
+  tags:
+    - docker
+  script:
+    - cp server/config.py.sample server/instance/config.py
+    - docker-compose -f docker-compose.yml -f docker-compose.ci.yml run -u root server
 #
 # == Upload Assets to Artifactory
 #
