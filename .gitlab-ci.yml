@@ -114,6 +114,7 @@ Test Assets:
     # Run Javascript tests
     # - 'pwd'
     # - 'ls'
+    - apk add --no-cache firefox-esr
     - 'cd assets'
     - 'npm install'
     - 'npm run test'
