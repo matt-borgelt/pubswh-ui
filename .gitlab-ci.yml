@@ -117,6 +117,7 @@ Test Server:
     - 'chmod +x /usr/local/bin/docker-compose'
     - 'ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose'
     #- 'ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose'
+    - tr ':' '\n' <<< "$PATH"
     - 'which docker-compose'
     - 'docker-compose --version'
     - 'cp server/config.py.sample server/instance/config.py'
