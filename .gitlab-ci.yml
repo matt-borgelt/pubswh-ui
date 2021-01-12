@@ -132,6 +132,7 @@ Test Server:
     - 'pip install coveralls'
     - 'pip install pylint'
     - 'pip install SaltPyLint'
+    - 'pip install pytest'
     # - 'docker-compose --version'
     # - 'cp server/config.py.sample server/instance/config.py'
     # - 'cd server'
