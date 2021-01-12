@@ -106,7 +106,8 @@ Test Assets:
 
 Test Server:
   # image: pkg.cr.usgs.gov/docker-remote/docker:20
-  image: https://code.usgs.gov/sas/base-docker-images/python
+  # image: https://code.usgs.gov/sas/base-docker-images/python
+  image: docker:19
   stage: Test
   services:
     - docker:dind
