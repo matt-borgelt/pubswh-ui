@@ -105,9 +105,9 @@ Test Assets:
     - 'npm run test'
 
 Test Server:
-  # image: pkg.cr.usgs.gov/docker-remote/docker:20
+  image: pkg.cr.usgs.gov/docker-remote/docker:20
   # image: https://code.usgs.gov/sas/base-docker-images/python
-  image: docker:19
+  # image: docker:19
   stage: Test
   services:
     - docker:dind
@@ -119,15 +119,16 @@ Test Server:
     # - 'chmod +x /usr/local/bin/docker-compose'
     # - 'ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose'
     #- 'ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose'
-    - 'apk add --no-cache py-pip'
+    # - 'apk add --no-cache py-pip'
+    - 'apk add docker'
     # - 'apk add --no-cache python-dev'
     # - 'apk add --no-cache libffi-dev'
     # - 'apk add --no-cache openssl-dev'
     # - 'apk add --no-cache gcc'
     # - 'apk add --no-cache libc-dev'
     # - 'apk add --no-cache make'
-    - 'pip install docker-compose'
-    - 'which docker-compose'
+    # - 'pip install docker-compose'
+    # - 'which docker-compose'
     - 'docker-compose --version'
     - 'cp server/config.py.sample server/instance/config.py'
     - 'cd server'
