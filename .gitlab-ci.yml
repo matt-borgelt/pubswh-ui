@@ -106,11 +106,9 @@ Test Assets:
 
 Test Server:
   # image: pkg.cr.usgs.gov/docker-remote/docker:20
-  image: https://pkg.cr.usgs.gov:443/artifactory/base-images/python
+  image: ${SAS_IMAGES_URL}/base-images/python
   # image: docker:19
   stage: Test
-  services:
-    - docker:dind
   tags:
     - docker
   script:
