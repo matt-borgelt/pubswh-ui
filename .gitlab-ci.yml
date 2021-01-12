@@ -136,7 +136,7 @@ Test Server:
     # - 'cp server/config.py.sample server/instance/config.py'
     # - 'cd server'
     # - 'docker-compose -f docker-compose.yml -f docker-compose.ci.yml run server'
-    - 'cd server && mkdir -p coverage && env/bin/coverage run --omit=pubs_ui/*/tests/*.py,env/* -m pytest pubs_ui/ && env/bin/coverage xml'
+    - 'cd server && mkdir -p coverage && coverage run --omit=pubs_ui/*/tests/*.py,env/* -m pytest pubs_ui/ && coverage xml'
 #
 # == Upload Assets to Artifactory
 #
