@@ -117,7 +117,7 @@ Test Server:
     # - 'chmod +x /usr/local/bin/docker-compose'
     # - 'ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose'
     #- 'ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose'
-    - 'sudo apt-get install py-pip'
+    - 'apt-get install py-pip'
     - '/usr/local/bin/python -m pip install --upgrade pip'
     # - 'apk add docker'
     # - 'apk add --no-cache python-dev'
