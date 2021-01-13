@@ -137,7 +137,7 @@ Test Server:
     - 'apk add jpeg-dev'
  
     
-    - 'pip install bumpversion'
+    # - 'pip install bumpversion'
     - 'pip install coverage'
     - 'pip install coveralls'
     - 'pip install pylint'
