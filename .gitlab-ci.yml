@@ -134,7 +134,7 @@ Test Server:
     - 'apk update && apk upgrade'
     # - 'apk add zlib1g-dev'
     - 'apk add zlib-dev'
-    - 'apk add libjpeg-dev'
+    - 'apk add jpeg-dev'
  
     
     - 'pip install bumpversion'
