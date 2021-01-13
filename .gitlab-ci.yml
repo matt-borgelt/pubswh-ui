@@ -132,7 +132,8 @@ Test Server:
     - 'apk add --no-cache libxml2-dev'
     - 'apk add --no-cache libxslt-dev'
     - 'apk update && apk upgrade'
-    - 'apk add zlib1g-dev'
+    # - 'apk add zlib1g-dev'
+    - 'apk add zlib-dev'
     - 'apk add libjpeg-dev'
  
     
