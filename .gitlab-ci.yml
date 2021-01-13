@@ -133,6 +133,7 @@ Test Server:
     - 'pip install pylint'
     - 'pip install SaltPyLint'
     - 'pip install pytest'
+    - 'pip install authlib'
     # - 'docker-compose --version'
     # - 'cp server/config.py.sample server/instance/config.py'
     # - 'cd server'
