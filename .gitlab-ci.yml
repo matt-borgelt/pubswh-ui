@@ -106,7 +106,7 @@ Test Assets:
 
 Test Server:
   # image: pkg.cr.usgs.gov/docker-remote/docker:20
-  image: ${SAS_IMAGES_URL}/base-images/python:3.7-alpine
+  image: ${SAS_IMAGES_URL}/base-images/python:3.8-slim-buster
   # image: docker:19
   stage: Test
   tags:
@@ -123,21 +123,21 @@ Test Server:
     # - 'apk add --no-cache python-dev'
     # - 'apk add --no-cache libffi-dev'
     # - 'apk add --no-cache openssl-dev'
-    - 'apk add --no-cache gcc'
-    - 'apk add --no-cache g++'
-    - 'apk add --no-cache libc-dev'
-    - 'apk add --no-cache make'
-    - 'apk add --no-cache libffi-dev'
-    - 'apk add --no-cache libressl-dev'
-    - 'apk add --no-cache libxml2-dev'
-    - 'apk add --no-cache libxslt-dev'
-    - 'apk update && apk upgrade'
+    - 'apt-get install gcc'
+    - 'apt-get install g++'
+    - 'apt-get install libc-dev'
+    - 'apt-get install make'
+    - 'apt-get install libffi-dev'
+    - 'apt-get install libressl-dev'
+    - 'apt-get install libxml2-dev'
+    - 'apt-get install libxslt-dev'
+    # - 'apk update && apk upgrade'
     # - 'apk add zlib1g-dev'
-    - 'apk add zlib-dev'
-    - 'apk add jpeg-dev'
+    # - 'apk add zlib-dev'
+    # - 'apk add jpeg-dev'
  
     
-    # - 'pip install bumpversion'
+    - 'pip install bumpversion'
     - 'pip install coverage'
     - 'pip install coveralls'
     - 'pip install pylint'
