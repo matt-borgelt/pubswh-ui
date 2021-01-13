@@ -126,6 +126,7 @@ Test Server:
     - 'apk add --no-cache libc-dev'
     - 'apk add --no-cache make'
     - 'apk add --no-cache libffi-dev'
+    - 'apk add --no-cache libssl-dev'
     # - 'pip install docker-compose'
     # - 'which docker-compose'
     - '/usr/local/bin/python -m pip install --upgrade pip'
