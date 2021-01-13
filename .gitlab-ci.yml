@@ -131,8 +131,9 @@ Test Server:
     - 'apk add --no-cache libressl-dev'
     - 'apk add --no-cache libxml2-dev'
     - 'apk add --no-cache libxslt-dev'
-    - 'apk add --no-cache libjpeg-dev'
     - 'apk add --no-cache  zlib1g-dev'
+    - 'apk add --no-cache libjpeg-dev'
+ 
     
     - 'pip install bumpversion'
     - 'pip install coverage'
