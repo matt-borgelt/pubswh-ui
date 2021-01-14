@@ -657,12 +657,12 @@ def make_chapter_data_for_display(pubdata):
         pubdata['interactions'] = natsort.natsorted(pubdata['interactions'], key=lambda x: x['subject']['indexId'],
                                                     alg=natsort.ns.IGNORECASE)
                 
-        if any(x['subject'].get('chapter') for x in pubdata['interactions']):
-            chapters = [x for x in pubdata['interactions'] if x['subject'].get('chapter')]
-            for chapter in chapters:
-                pubdata['interactions'].remove(chapter)
-            chapters = natsort.natsorted(chapters, key=lambda x: len(x['subject']['chapter']), alg=natsort.ns.IGNORECASE)
-            pubdata['interactions'].extend(chapters)
+        # if any(x['subject'].get('chapter') for x in pubdata['interactions']):
+        #     chapters = [x for x in pubdata['interactions'] if x['subject'].get('chapter')]
+        #     for chapter in chapters:
+        #         pubdata['interactions'].remove(chapter)
+        #     chapters = natsort.natsorted(chapters, key=lambda x: len(x['subject']['chapter']), alg=natsort.ns.IGNORECASE)
+        #     pubdata['interactions'].extend(chapters)
             
         # determine wheter to display the publication subparts chunk of the template
         for interaction in pubdata['interactions']:

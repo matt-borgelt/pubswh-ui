@@ -36,6 +36,7 @@
 #
 stages:
   - Build
+  - Test
   - Package Assets
   - Trigger Deployment
 
@@ -89,6 +90,53 @@ Build Assets:
     paths:
       - assets/dist
 
+Test Assets:
+  image: ${SAS_IMAGES_URL}/base-images/node:12.16
+  stage: Test
+  services:
+    - docker:dind
+  tags:
+    - docker
+  script:
+    - 'apt-get update'
+    - 'apt-get install -y firefox-esr'
+    - 'cd assets'
+    - 'npm install'
+    - 'npm run test'
+
+Test Server:
+  # image: pkg.cr.usgs.gov/docker-remote/docker:20
+  image: ${SAS_IMAGES_URL}/base-images/python:3.8-slim-buster
+  # image: docker:19
+  stage: Test
+  tags:
+    - docker
+  script:
+    # OS installs
+    - 'apt-get -y update && apt-get -y upgrade'
+    - 'apt-get -y install python-pip'
+    - '/usr/local/bin/python -m pip install --upgrade pip'
+    - 'apt-get -y install gcc'
+    - 'apt-get -y install g++'
+    - 'apt-get -y install libc-dev'
+    - 'apt-get -y install make'
+    - 'apt-get -y install libffi-dev'
+    - 'apt-get -y install libssl-dev'
+    - 'apt-get -y install libxml2-dev'
+    - 'apt-get -y install libxslt-dev'
+    # pip installs
+    - 'pip install bumpversion'
+    - 'pip install coverage'
+    - 'pip install coveralls'
+    - 'pip install pylint'
+    - 'pip install SaltPyLint'
+    - 'pip install pytest'
+    - 'pip install authlib'
+
+    - 'cd server'
+    - 'pip install -r requirements.txt'
+    - 'cp config.py.sample instance/config.py'
+    - 'mkdir -p coverage && coverage run --omit=pubs_ui/*/tests/*.py,env/* -m pytest pubs_ui/ && coverage xml'
 #
 # == Upload Assets to Artifactory
 #
@@ -152,6 +200,7 @@ Development deployment:
   variables:
     # The branch of the deployment repository to trigger.
     DEPLOY_TRIGGER_REF: develop
+  when: manual
 
 Staging deployment:
   extends: .deploy_trigger
@@ -161,3 +210,5 @@ Staging deployment:
   variables:
     # The branch of the deployment repository to trigger.
     DEPLOY_TRIGGER_REF: release
+  when: manual
+
