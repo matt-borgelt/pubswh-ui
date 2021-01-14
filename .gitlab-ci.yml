@@ -200,6 +200,7 @@ Development deployment:
   variables:
     # The branch of the deployment repository to trigger.
     DEPLOY_TRIGGER_REF: develop
+  when: manual
 
 Staging deployment:
   extends: .deploy_trigger
@@ -209,4 +210,5 @@ Staging deployment:
   variables:
     # The branch of the deployment repository to trigger.
     DEPLOY_TRIGGER_REF: release
+  when: manual
 
