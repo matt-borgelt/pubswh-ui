@@ -147,6 +147,7 @@ Test Server:
     - 'pip install authlib'
     - 'cd server'
     - 'pip install -r requirements.txt'
+    - 'cp config.py.sample instance/config.py'
     - 'mkdir -p coverage && coverage run --omit=pubs_ui/*/tests/*.py,env/* -m pytest pubs_ui/ && coverage xml'
 #
 # == Upload Assets to Artifactory
