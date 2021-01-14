@@ -129,7 +129,7 @@ Test Server:
     - 'apt-get -y install libc-dev'
     - 'apt-get -y install make'
     - 'apt-get -y install libffi-dev'
-    - 'apt-get -y install libressl-dev'
+    - 'apt-get -y install libssl-dev'
     - 'apt-get -y install libxml2-dev'
     - 'apt-get -y install libxslt-dev'
     # - 'apk update && apk upgrade'
